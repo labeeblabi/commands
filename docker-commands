@@ -1,7 +1,7 @@
 $ docker build -t image-name docker-file-location >>>>create image
         eg: docker build -t ubuntu . OR docker build -t ubuntu /root/ubuntu/Dockerfile
 $ docker run -d image-name >>>>>run container from image
-        eg: docker run ubuntu  
+        eg: docker run ubuntu and docker run --name=ubuntu ubuntu  
 $ docker images >>>>> list all images
 $ docker ps -l >>>>>list latest running container
 $ docker ps -a >>>>>list all running container 
@@ -14,3 +14,18 @@ $ docker rm container_id >>>>> delete container
 $ docker rm $(docker ps -a -q) >>>delete all container
 $ docker exec -it container-id bash >>>> enter into container
 
+Create our private registory
+$ docker run –d –p 5000:5000 –-name registry registry:2 >>>registory run as container
+$ docker tag 67591570dd29 localhost:5000/centos >>>> and tag current image with registory path
+$ docker push localhost:5000/centos >>>>push to registory
+
+Docker volume
+$ docker run –d –v /home/demo:/var/jenkins_home –p 8080:8080 –p 50000:50000 jenkins >>> map the container volume /var/jenkins_home to server volume /home/demo
+$ docker volume create –-name = demo –opt o = size = 100m >>> created docker volume of size 100MB
+$ docker volume ls >>> list volumes
+
+
+networking
+$ docker network ls >>> list all networks
+docker network create –-driver bridge new_nw >>> create new brdige network with name new_nw
+$ docker run –it –network=new_nw ubuntu:latest /bin/bash >>> run container with the network
