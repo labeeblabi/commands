@@ -1,0 +1,16 @@
+$ docker build -t image-name docker-file-location >>>>create image
+        eg: docker build -t ubuntu . OR docker build -t ubuntu /root/ubuntu/Dockerfile
+$ docker run -d image-name >>>>>run container from image
+        eg: docker run ubuntu  
+$ docker images >>>>> list all images
+$ docker ps -l >>>>>list latest running container
+$ docker ps -a >>>>>list all running container 
+$ docker stop container_id  >>>>stop running container
+$ docker kill container_id  >>>>stop running container
+$ docker rmi image-name  >>>> delete image
+$ docker rmi $(docker images -q)  >>>delete all images
+$ docker rmi -r $(docker images -q)  >>> delete all images forcefully
+$ docker rm container_id >>>>> delete container
+$ docker rm $(docker ps -a -q) >>>delete all container
+$ docker exec -it container-id bash >>>> enter into container
+
