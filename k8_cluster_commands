@@ -1,0 +1,19 @@
+$ systemctl status kueblet
+### if worker node is on notready sytate 
+    $ kubeadm reset
+### need to create new tocken on master node 
+    $ kubeadm tocken create --print-join-command
+### start docker and kubelet on worker node
+    $ systemctl start docker
+    $ systemctl start kubelet
+### then run kubeadm joint <tocken> on worker node
+ 
+
+
+
+
+
+
+
+
+kubectl drain nodes worker-node ?????commands on master
